@@ -7,7 +7,8 @@
 class Game
 {
 public:
-    Game(const QString &coverPath = "",
+    Game(const int &id = 1,
+         const QString &coverPath = "",
          const QString &name = "",
          const QString &studio = "",
          const QString &genre = "",
@@ -28,7 +29,11 @@ public:
     const QString &releaseDate() const;
     void setReleaseDate(const QString &newReleaseDate);
 
+    int id() const;
+    void setId(int newId);
+
 private:
+    int mId;
     QString mCoverPath;
     QString mName;
     QString mStudio;

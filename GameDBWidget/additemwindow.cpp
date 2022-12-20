@@ -1,10 +1,12 @@
 #include "additemwindow.h"
 #include "ui_additemwindow.h"
 
-AddItemWindow::AddItemWindow(QWidget *parent) :
+AddItemWindow::AddItemWindow(QWidget *parent, const int &rowsCount) :
     QDialog(parent),
     ui(new Ui::AddItemWindow)
 {
+    mRowsCount = rowsCount;
+
     ui -> setupUi(this);
 
     connect(ui -> addFileButton, &QPushButton::clicked, this, &AddItemWindow::searchForFile);
@@ -36,6 +38,7 @@ void AddItemWindow::convertInputToXML()
         return;
     }
 
+    mGame.setId(mRowsCount);
     mGame.setCoverPath(ui -> pathLE -> text());
     mGame.setName(ui -> nameLE -> text());
     mGame.setStudio(ui -> studioLE -> text());

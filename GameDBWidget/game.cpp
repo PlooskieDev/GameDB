@@ -1,16 +1,28 @@
 #include "game.h"
 
-Game::Game(const QString &coverPath,
+Game::Game(const int &id,
+           const QString &coverPath,
            const QString &name,
            const QString &studio,
            const QString &genre,
            const QString &releaseDate)
 {
+    mId = id;
     mCoverPath = coverPath;
     mName = name;
     mStudio = studio;
     mGenre = genre;
     mReleaseDate = releaseDate;
+}
+
+int Game::id() const
+{
+    return mId;
+}
+
+void Game::setId(int newId)
+{
+    mId = newId;
 }
 
 const QString &Game::coverPath() const

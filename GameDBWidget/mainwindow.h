@@ -4,8 +4,12 @@
 #include <QMainWindow>
 #include <QDirIterator>
 #include <QXmlStreamReader>
+#include <QFile>
+#include <QTextStream>
 #include <QMessageBox>
 #include <QTableWidgetItem>
+#include <QDomDocument>
+#include <QDomElement>
 
 #include "game.h"
 
@@ -40,5 +44,8 @@ private:
 
     void addGameToTable(const Game &game);
     void removeGameFromTable();
+
+    void openXML();
+    void saveXML();
 };
 #endif // MAINWINDOW_H

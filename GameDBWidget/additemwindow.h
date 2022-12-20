@@ -15,7 +15,7 @@ class AddItemWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddItemWindow(QWidget *parent = nullptr);
+    explicit AddItemWindow(QWidget *parent = nullptr, const int &rowsCount = 0);
     ~AddItemWindow();
 
     Game getGame() const;
@@ -23,11 +23,12 @@ public:
 private:
     Ui::AddItemWindow *ui;
 
+    Game mGame;
+    int mRowsCount;
+
     void convertInputToXML();
     void searchForFile();
     void rejectForm();
-
-    Game mGame;
 };
 
 #endif // ADDITEMWINDOW_H
