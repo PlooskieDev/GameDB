@@ -33,6 +33,11 @@ private slots:
      */
     void openAddForm();
 
+    /**
+     * Opens a window that briefly informs the user about the app.
+     */
+    void openAboutForm();
+
 private:
     Ui::MainWindow *ui;
 

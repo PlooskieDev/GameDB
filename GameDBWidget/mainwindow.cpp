@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Actions
     //     [=]() { this -> openXML(false); });
-    //    connect(ui -> actionAbout, &QAction::triggered, this, [=]() { this -> openXML(false); });
+    connect(ui -> actionAbout, &QAction::triggered, this, &MainWindow::openAboutForm);
     connect(ui -> actionQuit, &QAction::triggered, this, &MainWindow::close);
     connect(ui -> actionAdd, &QAction::triggered, this, &MainWindow::openAddForm);
     connect(ui -> actionRemove, &QAction::triggered, this, &MainWindow::removeGameFromTable);
@@ -87,6 +87,18 @@ void MainWindow::openAddForm()
     loadImages();
     saveImages();
     saveXML();
+}
+
+void MainWindow::openAboutForm()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("About GameDB");
+    msgBox.setText("GameDB is a term project for the AP7MP."
+                   "\nIt allows users to store information about their favorite games."
+                   "\nDeveloped by Michael Pluskal.");
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    msgBox.exec();
 }
 
 void MainWindow::addGameToTable(const Game &game)
