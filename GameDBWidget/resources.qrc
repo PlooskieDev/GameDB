@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>GameDBLogo.png</file>
+        <file>addItem.png</file>
+    </qresource>
+</RCC>

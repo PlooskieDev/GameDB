@@ -31,10 +31,7 @@ void AddItemWindow::convertInputToXML()
             !ui -> genreLE -> isModified() ||
             !ui -> dateLE -> isModified())
     {
-        QMessageBox ms;
-        ms.text() = "Not all info given!";
-        ms.show();
-
+        QMessageBox::question(this, "Empty fields", "Not all fields have been filled out.");
         return;
     }
 

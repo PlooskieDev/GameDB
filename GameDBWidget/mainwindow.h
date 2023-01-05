@@ -5,11 +5,10 @@
 #include <QDirIterator>
 #include <QXmlStreamReader>
 #include <QFile>
+#include <QFileDialog>
 #include <QTextStream>
 #include <QMessageBox>
-#include <QTableWidgetItem>
 #include <QDomDocument>
-#include <QDomElement>
 
 #include "game.h"
 
@@ -33,19 +32,30 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    QString filePath = "";
+
     enum
     {
         COVER,
         NAME,
         STUDIO,
         GENRE,
-        RELEASEDATE
+        RELEASEDATE,
+        COVERPATH,
+        ID
     };
 
     void addGameToTable(const Game &game);
     void removeGameFromTable();
 
-    void openXML();
+    void openXML(bool import);
     void saveXML();
+    QDomDocument xmlSetup(QDomDocument doc);
+
+    void saveImages();
+    void copyImportedImages();
+    void loadImages();
+
+    void searchTable();
 };
 #endif // MAINWINDOW_H
