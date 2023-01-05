@@ -26,7 +26,16 @@ private:
     Game mGame;
     int mRowsCount;
 
+    /**
+     * This function checks if all the boxes have been filled out.
+     * If yes it fills the mGame object with the acquired data and closes the form with the accept() function.
+     * (The game object is then processed in the main window)
+     */
     void convertInputToXML();
+
+    /**
+     * Opens a dialog in which the user can select the desired image.
+     */
     void searchForFile();
     void rejectForm();
 };
