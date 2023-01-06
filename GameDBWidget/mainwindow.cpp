@@ -353,8 +353,19 @@ void MainWindow::loadImages()
             continue;
 
         QImage *img = new QImage(imgPath);
+        if (img == NULL)
+        {
+            QMessageBox::critical(this, "Error", "Out of memory!");
+            return;
+        }
 
         QTableWidgetItem *thumbnail = new QTableWidgetItem;
+        if (thumbnail == NULL)
+        {
+            QMessageBox::critical(this, "Error", "Out of memory!");
+            return;
+        }
+
         thumbnail -> setData(Qt::DecorationRole, QPixmap::fromImage(*img).scaledToHeight(150));
 
         ui -> mainTable -> setItem(i, COVER, new QTableWidgetItem(*thumbnail));
